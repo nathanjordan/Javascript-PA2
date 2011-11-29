@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ID3 Viewer</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="parse.js"></script>
+<script type="text/javascript">
+$(document).ready( function() {
+	$("#files").change( function() {
+	
+		parseFile( this.files[0] );
+	
+		});
+	});
+</script>
+</head>
+<body>
+<h1>ID3 Viewer</h1>
+<input type="file" id="files" name="files" />
+</body>
+</html> 
