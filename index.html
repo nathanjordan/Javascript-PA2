@@ -12,9 +12,9 @@
 $(document).ready( function() {
 
 	$("#files").change( function() {
-	
+		
 		parseFile( this.files[0] );
-	
+		
 		});
 	});
 	
@@ -26,7 +26,7 @@ $(document).ready( function() {
 
 <input type="file" id="files" name="files" />
 
-<div class="hidden">
+<div id="v1Box" class="hidden">
 <h3>ID3 v1</h3>
 <table>
 	<tr><th>Title</th><td id="v1Title"></td></tr>
@@ -39,7 +39,7 @@ $(document).ready( function() {
 </table>
 </div>
 
-<div class="hidden">
+<div id="v2Box" class="hidden">
 <h3>ID3 v2</h3>
 <strong>Tag Count:</strong><span id="v2Count"></span>
 <table>

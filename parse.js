@@ -4,14 +4,20 @@ function parseFile( file ) {
 	
 	var reader = new FileReader();
 	
+	reader.addEventListener( "load" , ready );
+	
 	reader.readAsBinaryString( file );
 	
-	var textContents = reader.result;
+	}
+
+function ready( e ) {
+	
+	var textContents = e.target.result;
 	
 	var v1Data = parseV1( textContents );
-	
+
 	var v2Data = parseV2( textContents );
-	
+
 	printResults( v1Data , v2Data );
 	
 	}
@@ -20,8 +26,8 @@ function parseV1( text ) {
 	
 	var index = text.indexOf( "TAG" ) + 3;
 	
-	if( index == -1 )
-		return;
+	if( index == 2 )
+		return null;
 	
 	var title = trimFat( text.slice( index , index + 30 ) );
 	
@@ -69,6 +75,11 @@ function parseV1( text ) {
 	}
 	
 function parseV2( text ) {
+	
+	var index = text.indexOf( "ID3" );
+	
+	if( index == -1 )
+		return null;
 	
 	var count = 0;
 	
